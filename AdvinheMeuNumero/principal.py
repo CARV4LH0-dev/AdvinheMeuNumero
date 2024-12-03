@@ -46,46 +46,50 @@ while parar == False:
             modo = int(input("Escolha o modo de jogo: "))
             if modo != 1 and modo != 2:
                 print("\n" * 130)
-                print("\n\033[33mERRO! Por favor, digite uma opção vál.\033[m")
+                print("\n\033[33mERRO! Por favor, digite uma opção válida.\033[m")
                 continue
         except (ValueError, TypeError, KeyboardInterrupt, IndexError):
             print("\n" * 130)
             print("\n\033[33mERRO! Por favor, digite uma opção válida.\033[m")
             continue
         else:
+            print("\n" * 130)
             rodada = 1
             break
 
     while modo == 1:
-        print("\n" * 130)
-        print("\033[34m=" * 60)
-        print("Jogador 1 vs Jogador 2".center(57))
-        print("=" * 60)
-        print("\033[m")
-        while rodada == 1:
-            print("\033[36m=" * 60)
-            print("PRIMEIRA RODADA".center(57))
-            print("=" * 60)
-            print("\033[m")
-            while True:
-                try:
-                    regra = str(input("Deseja ver as regras? (S/N) ")).strip() [0]
-                    if not regra.isalpha() or not regra in 'SsNn':
-                        print("\n\033[33mERRO! Por favor, digite 'S' para 'Sim' ou 'N' para 'Não'\033[m")
-                        continue
-                except (ValueError, TypeError, KeyboardInterrupt, IndexError):
+        while True:
+            try:
+                print("\033[34m=" * 60)
+                print("Jogador 1 vs Jogador 2".center(57))
+                print("=" * 60)
+                print("\033[m")
+                regra = str(input("Deseja ver as regras? (S/N) ")).strip() [0]
+                if not regra.isalpha() or not regra in 'SsNn':
                     print("\n\033[33mERRO! Por favor, digite 'S' para 'Sim' ou 'N' para 'Não'\033[m")
+                    sleep(3)
+                    print("\n" * 130)
                     continue
-                else:
-                    if regra in 'Ss':
-                        regras()
+            except (ValueError, TypeError, KeyboardInterrupt, IndexError):
+                print("\n\033[33mERRO! Por favor, digite 'S' para 'Sim' ou 'N' para 'Não'\033[m")
+                sleep(3)
+                print("\n" * 130)
+                continue
+            else:
+                if regra in 'Ss':
+                    while True:
                         try:
+                            regras()
                             apagar = str(input("\nDeseja apagar as regras? (S/N) ")).strip() [0]
                             if not apagar.isalpha() or not apagar in 'SsNn':
                                 print("\n\033[33mERRO! Por favor, digite 'S' para 'Sim' ou 'N' para 'Não'\033[m")
+                                sleep(3)
+                                print("\n" * 130)
                                 continue
                         except (ValueError, TypeError, KeyboardInterrupt, IndexError):
                             print("\n\033[33mERRO! Por favor, digite 'S' para 'Sim' ou 'N' para 'Não'\033[m")
+                            sleep(3)
+                            print("\n" * 130)
                             continue
                         else:
                             if apagar in 'Ss':
@@ -93,9 +97,13 @@ while parar == False:
                                 break
                             else:
                                 break
-                    else:
-                        break
+            break
 
+        while rodada == 1:
+            print("\033[36m=" * 60)
+            print("PRIMEIRA RODADA".center(57))
+            print("=" * 60)
+            print("\033[m")
             while valido1 == False:
                 try:
                     Jogador1 = str(input("\nJogador 1, digite seu nome: ")).strip().capitalize()
@@ -271,9 +279,11 @@ while parar == False:
                     again = str(input("\nDeseja jogar outra partida? (S/N) ")).strip() [0]
                     if not again.isalpha() or not again in 'SsNn':
                         print("\033[33mERRO! Por favor, digite 'S' para 'Sim' ou 'N' para 'Não'\033[m")
+                        sleep(3)
                         continue
                 except (ValueError, TypeError, KeyboardInterrupt, IndexError):
                     print("\033[33mERRO! Por favor, digite 'S' para 'Sim' ou 'N' para 'Não'\033[m")
+                    sleep(3)
                     continue
                 else:
                     print("\n" * 130)
@@ -292,35 +302,38 @@ while parar == False:
 
 
     while modo == 2:
-        print("\n" * 130)
-        print("\033[34m=" * 60)
-        print("Jogador vs Computador".center(57))
-        print("=" * 60)
-        print("\033[m")
-        while rodada == 1:
-            print("\033[36m=" * 60)
-            print("PRIMEIRA RODADA".center(57))
-            print("=" * 60)
-            print("\033[m")
-            while True:
-                try:
-                    regra = str(input("Deseja ver as regras? (S/N) ")).strip() [0]
-                    if not regra.isalpha() or not regra in 'SsNn':
-                        print("\n\033[33mERRO! Por favor, digite 'S' para 'Sim' ou 'N' para 'Não'\033[m")
-                        continue
-                except (ValueError, TypeError, KeyboardInterrupt, IndexError):
+        while True:
+            try:
+                print("\033[34m=" * 60)
+                print("Jogador vs Computador".center(57))
+                print("=" * 60)
+                print("\033[m")
+                regra = str(input("Deseja ver as regras? (S/N) ")).strip() [0]
+                if not regra.isalpha() or not regra in 'SsNn':
                     print("\n\033[33mERRO! Por favor, digite 'S' para 'Sim' ou 'N' para 'Não'\033[m")
+                    sleep(3)
+                    print("\n" * 130)
                     continue
-                else:
-                    if regra in 'Ss':
-                        regras()
+            except (ValueError, TypeError, KeyboardInterrupt, IndexError):
+                print("\n\033[33mERRO! Por favor, digite 'S' para 'Sim' ou 'N' para 'Não'\033[m")
+                sleep(3)
+                print("\n" * 130)
+                continue
+            else:
+                if regra in 'Ss':
+                    while True:
                         try:
+                            regras()
                             apagar = str(input("\nDeseja apagar as regras? (S/N) ")).strip() [0]
                             if not apagar.isalpha() or not apagar in 'SsNn':
                                 print("\n\033[33mERRO! Por favor, digite 'S' para 'Sim' ou 'N' para 'Não'\033[m")
+                                sleep(3)
+                                print("\n" * 130)
                                 continue
                         except (ValueError, TypeError, KeyboardInterrupt, IndexError):
                             print("\n\033[33mERRO! Por favor, digite 'S' para 'Sim' ou 'N' para 'Não'\033[m")
+                            sleep(3)
+                            print("\n" * 130)
                             continue
                         else:
                             if apagar in 'Ss':
@@ -328,16 +341,23 @@ while parar == False:
                                 break
                             else:
                                 break
-                break
+            break
 
+        while rodada == 1:
+            print("\033[36m=" * 60)
+            print("PRIMEIRA RODADA".center(57))
+            print("=" * 60)
+            print("\033[m")
             while valido == False:
                 try:
                     Jogador1 = str(input("\nJogador 1, digite seu nome: ")).strip().capitalize()
                     if not Jogador1.isalpha():
                         print("\n\033[33mERRO! Por favor, digite um nome válido.\033[m")
+                        sleep(3)
                         continue
                 except (ValueError, TypeError, KeyboardInterrupt, IndexError):
                     print("\n\033[33mERRO! Por favor, digite um nome válido.\033[m")
+                    sleep(3)
                     continue
                 else:
                     valido = True
@@ -407,12 +427,23 @@ while parar == False:
                     cont2 += 1
                     num_segurança1 = tentativa
                     num_segurança2 = tentativa
+                    num_segurança3 = tentativa
                     print(f"O Computador está pensando em um número...")
                     sleep(4)
                     print(f"O Computador pensou no número {tentativa:.0f}")
                 else:
-                    num_segurança2 = num_segurança1
-                    num_segurança1 = tentativa
+                    if num_segurança1 > secreto and num_segurança2 < secreto and tentativa > secreto:
+                        num_segurança1 = tentativa
+                    elif num_segurança1 < secreto and num_segurança2 > secreto and tentativa < secreto:
+                        num_segurança1 = tentativa
+                    elif num_segurança1 > secreto and num_segurança2 < secreto and tentativa < secreto:
+                        num_segurança2 = tentativa
+                    elif num_segurança1 < secreto and num_segurança2 > secreto and tentativa > secreto:
+                        num_segurança2 = tentativa
+                    else:
+                        num_segurança3 = num_segurança2
+                        num_segurança2 = num_segurança1
+                        num_segurança1 = tentativa
                 if cont2 == 1:
                     print("")
                     print(f"O {robot} já tentou \033[36m{cont2}\033[m vez")
@@ -423,7 +454,32 @@ while parar == False:
                     print("")
 
                 while True:
-                    if num_segurança1 > secreto and num_segurança2 > secreto:
+                    if num_segurança1 < secreto and num_segurança2 > secreto:
+                        if num_segurança1 % 2 != 0:
+                            num_segurança1 -= 1
+                        if num_segurança2 % 2 != 0:
+                            num_segurança2 += 1
+                        tentativa = num_segurança1 + (num_segurança2 - num_segurança1) / 2
+                        num_segurança3 = tentativa
+                        cont2 += 1
+                        print(f"O Computador está pensando em um número...")
+                        sleep(4)
+                        print(f"O Computador pensou no número {tentativa:.0f}")
+                        break
+                    elif num_segurança1 > secreto and num_segurança2 < secreto:
+                        if num_segurança1 % 2 != 0:
+                            num_segurança1 += 1
+                        if num_segurança2 % 2 != 0:
+                            num_segurança2 -= 1
+                        tentativa = num_segurança1 - (num_segurança1 - num_segurança2) / 2
+                        num_segurança3 = tentativa
+                        cont2 += 1
+                        print(f"O Computador está pensando em um número...")
+                        sleep(4)
+                        print(f"O Computador pensou no número {tentativa:.0f}")
+                        break
+
+                    elif num_segurança1 > secreto and num_segurança2 > secreto:
                         if num_segurança1 % 2 != 0:
                             num_segurança1 += 1
                         if num_segurança2 % 2 != 0:
@@ -434,60 +490,6 @@ while parar == False:
                         sleep(4)
                         print(f"O Computador pensou no número {tentativa:.0f}")
                         break
-
-                    elif num_segurança1 > secreto and num_segurança2 < secreto:
-                        if num_segurança1 - num_segurança2 == 4:
-                            tentativa = num_segurança1 - 2
-                            cont2 += 1
-                            print(f"O Computador está pensando em um número...")
-                            sleep(4)
-                            print(f"O Computador pensou no número {tentativa:.0f}")
-                            break
-                        elif num_segurança1 - num_segurança2 == 3:
-                            tentativa = num_segurança1 - 2
-                            cont2 += 1
-                            print(f"O Computador está pensando em um número...")
-                            sleep(4)
-                            print(f"O Computador pensou no número {tentativa:.0f}")
-                            break
-                        else:
-                            if num_segurança1 % 2 != 0:
-                                num_segurança1 += 1
-                            if num_segurança2 % 2 != 0:
-                                num_segurança2 -= 1
-                            tentativa = num_segurança1 + (num_segurança2 - num_segurança1) / 2
-                            cont2 += 1
-                            print(f"O Computador está pensando em um número...")
-                            sleep(4)
-                            print(f"O Computador pensou no número {tentativa:.0f}")
-                            break
-
-                    elif num_segurança1 < secreto and num_segurança2 > secreto:
-                        if num_segurança2 - num_segurança1 == 4:
-                            tentativa = num_segurança1 + 2
-                            cont2 += 1
-                            print(f"O Computador está pensando em um número...")
-                            sleep(4)
-                            print(f"O Computador pensou no número {tentativa:.0f}")
-                            break
-                        elif num_segurança2 - num_segurança1 == 3:
-                            tentativa = num_segurança1 + 2
-                            cont2 += 1
-                            print(f"O Computador está pensando em um número...")
-                            sleep(4)
-                            print(f"O Computador pensou no número {tentativa:.0f}")
-                            break
-                        else:
-                            if num_segurança1 % 2 != 0:
-                                num_segurança1 -= 1
-                            if num_segurança2 % 2 != 0:
-                                num_segurança2 += 1
-                            tentativa = num_segurança1 + (num_segurança2 - num_segurança1) / 2
-                            cont2 += 1
-                            print(f"O Computador está pensando em um número...")
-                            sleep(4)
-                            print(f"O Computador pensou no número {tentativa:.0f}")
-                            break
 
                     elif num_segurança1 < secreto and num_segurança2 < secreto:
                         if num_segurança1 % 2 != 0:
