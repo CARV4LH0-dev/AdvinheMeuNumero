@@ -8,9 +8,9 @@ def regras():
     print("\033[36m-\033[m Jogadores: 1 ou 2")
     print("\033[36m-\033[m Rodadas: 2")
     print("\033[36m-\033[m O Jogador 1 escolhe um número secreto de 1 a 100")
-    print("\033[36m-\033[m O jogador 2 tenta advinhar o número secreto escolhido pelo Jogador 1")
+    print("\033[36m-\033[m O Jogador 2 tenta advinhar o número secreto escolhido pelo Jogador 1")
     print("\033[36m-\033[m A cada tentativa errada, é mostrado na tela se o número secreto é menor ou maior")
-    print("\033[36m-\033[m O jogador 2 tem chances ilimitadas para advinhar, mas não pode repetir escolhas")
+    print("\033[36m-\033[m O Jogador 2 tem chances ilimitadas para advinhar o número secreto")
     print("\033[36m-\033[m Todas tentativas são computadas até o Jogador 2 advinhar o número secreto")
     print("\033[36m-\033[m Quando o Jogador 2 advinhar o número secreto, muda para a segunda rodada")
     print("\033[36m-\033[m Na segunda rodada, o Jogador 1 advinha um número secreto do Jogador 2")
@@ -344,6 +344,7 @@ while parar == False:
             break
 
         while rodada == 1:
+            print("")
             print("\033[36m=" * 60)
             print("PRIMEIRA RODADA".center(57))
             print("=" * 60)
@@ -423,7 +424,7 @@ while parar == False:
                     break
             while tentativa != secreto:
                 if cont2 == 0:
-                    tentativa = randint(45, 55)
+                    tentativa = randint(46, 55)
                     cont2 += 1
                     num_segurança1 = tentativa
                     num_segurança2 = tentativa
@@ -431,6 +432,8 @@ while parar == False:
                     print(f"O Computador está pensando em um número...")
                     sleep(4)
                     print(f"O Computador pensou no número {tentativa:.0f}")
+                    if tentativa == secreto:
+                        break
                 else:
                     if num_segurança1 > secreto and num_segurança2 < secreto and tentativa > secreto:
                         num_segurança1 = tentativa
